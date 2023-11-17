@@ -21,14 +21,27 @@ def loadlista():
             N = int(linha[0])
             lista_adj = [[]for _ in range (N)]
         else:
-            if is_numeric(linha[1]):
-                #Se for letra os vertices
-                lista_adj[int(linha[0])].append(int(linha[1]))
-            else:
-                lista_adj[int(linha[0])-1].append(int(linha[1])-1)
+            lista_adj[int(linha[0])-1].append(int(linha[1])-1)
             
     arquivo.close()
     return lista_adj, N
+
+
+def loadlistaLetras():
+    arquivo = open('grafo_letras.txt','r')
+    lista = arquivo.readlines()
+    
+    for i in range(len(lista)):
+        linha= lista[i].split()
+        if i == 0:
+            N = int(linha[0])
+            lista_adj = [[]for _ in range (N)]
+        else:
+            lista_adj[0].append(linha[1])
+            
+    arquivo.close()
+    return lista_adj, N
+
 
 def DFS_visit(u):
     global mark
@@ -56,7 +69,7 @@ def Dfs():
         if cor[u]=="Branco":
             DFS_visit(u)
 
-[lista_adj, N] = loadlista()
+[lista_adj, N] = loadlistaLetras()
 
 V = [3,0,1,2,4,5,6]
 cor = [0]*N
