@@ -1,3 +1,11 @@
+''' 
+Allan Feitosa Wariss Maia - 541564
+Rogério de Jesus Machado Pio - 540140
+Alexsandro Martins Alves - 541581
+Mahatma Gandhi Pereira Leite - 542480
+'''
+
+
 def imprime(d, f, N):
     # "N" é o numero de vertices
     for i in range(N):
